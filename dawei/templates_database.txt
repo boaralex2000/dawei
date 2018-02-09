@@ -1,0 +1,15 @@
+ID
+NAME
+ABOUT
+SCOVILLE
+RATING
+PRICE
+ALLERGY
+
+CREATE TABLE dishes(ID int(8) PRIMARY_KEY AUTOINCREMENT, NAME varchar(32), ABOUT TINYTEXT, SCOVILLE int(8), RATING int(8), PRICE int(8), ALLERGY varchar(32)); 
+
+INSERT INTO dishes (NAME, ABOUT, SCOVILLE, RATING, PRICE, ALLERGY) VALUES ('', '', '', '', '', '');
+
+'Pad Thai', 'Släpp loss dofter av det thailändska köket vid middagsbordet. Pad thai är en street food-klassiker som går hem hos alla, variera chilistyrkan efter tycke och smak.', '8', '4.5', '89', 'INGET'
+
+INSERT INTO dishes (NAME, ABOUT, SCOVILLE, RATING, PRICE, ALLERGY) VALUES ('Kyckling Masala', 'En snabb och god paneng med thailändska smaker uppnår du lätt med färdig sås. En spännande kycklingmiddag serverad med nudlar och hackade nötter på toppen.', '1', '3', '59', 'NÖTTER');
