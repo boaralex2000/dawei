@@ -41,15 +41,6 @@
     
         $result = mysqli_query($dbc,$query);
         
-        $two = mysqli_query($dbc,"SELECT ABOUT FROM dishes OFFSET 2");
-        $three = mysqli_query($dbc,"SELECT ABOUT FROM dishes OFFSET 3");
-        $four = mysqli_query($dbc,"SELECT ABOUT FROM dishes OFFSET 4");
-        $five = mysqli_query($dbc,"SELECT ABOUT FROM dishes OFFSET 5");
-        $six = mysqli_query($dbc,"SELECT ABOUT FROM dishes OFFSET 6");
-        $seven = mysqli_query($dbc,"SELECT ABOUT FROM dishes OFFSET 7");
-        $eight = mysqli_query($dbc,"SELECT ABOUT FROM dishes OFFSET 8");
-        $nine = mysqli_query($dbc,"SELECT ABOUT FROM dishes OFFSET 9");
-        $ten = mysqli_query($dbc,"SELECT ABOUT FROM dishes OFFSET 10");
         
     
     ?>
@@ -57,16 +48,16 @@
         <div class="w3-top">
             <div class="w3-row w3-padding w3-black">
                 <div class="w3-col s3">
-                    <a href="#" class="w3-button w3-block w3-black">HOME</a>
+                    <a href="#" class="w3-button w3-block w3-black">HEM</a>
                 </div>
                 <div class="w3-col s3">
-                    <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
+                    <a href="#about" class="w3-button w3-block w3-black">OM</a>
                 </div>
                 <div class="w3-col s3">
-                    <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
+                    <a href="#menu" class="w3-button w3-block w3-black">MENY</a>
                 </div>
                 <div class="w3-col s3">
-                    <a href="#where" class="w3-button w3-block w3-black">WHERE</a>
+                    <a href="#where" class="w3-button w3-block w3-black">HITTA OSS</a>
                 </div>
             </div>
         </div>
@@ -74,13 +65,13 @@
         <!-- Header with image -->
         <header class="bgimg w3-display-container w3-grayscale-min" id="home">
             <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
-                <span class="w3-tag">Open from 6am to 8pm</span>
+                <span class="w3-tag">Öppet från 08 t.o.m. 22 </span>
             </div>
             <div class="w3-display-middle w3-center">
                 <span class="w3-text-white" style="font-size:90px">Da Wei</span>
             </div>
             <div class="w3-display-bottomright w3-center w3-padding-large">
-                <span class="w3-text-white">15 Adr street, 5015</span>
+                <span class="w3-text-white">Atles Gata, Vintrie, Malmö</span>
             </div>
         </header>
 
@@ -90,15 +81,15 @@
             <!-- About Container -->
             <div class="w3-container" id="about">
                 <div class="w3-content" style="max-width:700px">
-                    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE CAFE</span></h5>
-                    <p>The Cafe was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <p>In addition to our full espresso and brew bar menu, we serve fresh made-to-order breakfast and lunch sandwiches, as well as a selection of sides and salads and other good stuff.</p>
+                    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">OM RESTAURANGET</span></h5>
+                    <p>Restauranget grundades 1998 av BaBa BaoB och Tombång Beis. Här på Da Wei erbjuds goda rätter som man inte kan få tag på annanstans. Våra produkter är från naturen och är helt färska.</p>
+                    <p>Dessutom så kan man boka bord online och kolla rätterna innan man besöker restauranget. Karta finns längre ner på sidan och här på Da Wei garanterar vi bästa service.</p>
                     <div class="w3-panel w3-leftbar w3-light-grey">
-                        <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>
-                        <p>Chef, Coffeeist and Owner: Liam Brown</p>
+                        <p><i>"Använd produkter från naturen för vad det är värt - men aldrig för tidigt eller för sent." Färskt är det nya söta.</i></p>
+                        <p>Chef and Owner: BaBa BaoB</p>
                     </div>
-                    <p><strong>Opening hours:</strong> everyday from 6am to 5pm.</p>
-                    <p><strong>Address:</strong> 15 Adr street, 5015, NY</p>
+                    <p><strong>Opening hours:</strong> Varje dag från 08 t.o.m. 22. </p>
+                    <p><strong>Address:</strong> Atles Gata, Vintrie, Malmö</p>
                 </div>
             </div>
 
@@ -118,8 +109,11 @@
                     </div>
 
                     <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
+                        
+                        
+                        
                         <h5>
-                        <?php 
+                            <?php 
                             $dbc = mysqli_connect("localhost","root","","dawei"); 
                             mysqli_query($dbc,"SET NAMES UTF8");
                             $query = "SELECT NAME FROM dishes WHERE ID=1";
@@ -127,18 +121,35 @@
                             while($row = mysqli_fetch_array($result)){ echo $row['NAME']; }
                         ?>
                         </h5>
-                        <p class="w3-text-grey">   
-                        <?php 
+                        <div>
+                            <img class="menu-images" src="../images/Pad.png" width="200px" />
+                        </div>
+                        <div>
+                            <p class="menu-prices">
+                            <?php 
+                                $dbc = mysqli_connect("localhost","root","","dawei"); 
+                                mysqli_query($dbc,"SET NAMES UTF8");
+                                $query = "SELECT PRICE FROM dishes WHERE ID=1";
+                                $result = mysqli_query($dbc,$query); 
+                                while($row = mysqli_fetch_array($result)){ echo $row['PRICE']; }
+                            ?> KR
+                            </p>
+                        </div>
+                        <img src="../images/scoville2.png" width="200px" class="menu-scoville">
+                        <p class="w3-text-grey">
+                            <?php 
                             $dbc = mysqli_connect("localhost","root","","dawei"); 
                             mysqli_query($dbc,"SET NAMES UTF8");
                             $query = "SELECT ABOUT FROM dishes WHERE ID=1";
                             $result = mysqli_query($dbc,$query); 
                             while($row = mysqli_fetch_array($result)){ echo $row['ABOUT']; } 
-                        ?>  
+                        ?>
                         </p><br>
 
+                        
+                        
                         <h5>
-                        <?php 
+                            <?php 
                             $dbc = mysqli_connect("localhost","root","","dawei"); 
                             mysqli_query($dbc,"SET NAMES UTF8");
                             $query = "SELECT NAME FROM dishes WHERE ID=2";
@@ -146,18 +157,37 @@
                             while($row = mysqli_fetch_array($result)){ echo $row['NAME']; }
                         ?>
                         </h5>
+                        <div class="menu-images">
+                            <img src="../images/Gai.png" width="200px" />
+                        </div>
+                        <div>
+                            <p class="menu-prices">
+                            <?php 
+                                $dbc = mysqli_connect("localhost","root","","dawei"); 
+                                mysqli_query($dbc,"SET NAMES UTF8");
+                                $query = "SELECT PRICE FROM dishes WHERE ID=2";
+                                $result = mysqli_query($dbc,$query); 
+                                while($row = mysqli_fetch_array($result)){ echo $row['PRICE']; }
+                            ?> KR
+                            </p>
+                        </div>
+                        <img src="../images/scoville1.png" width="200px" class="menu-scoville">
                         <p class="w3-text-grey">
-                        <?php 
+                            <?php 
                             $dbc = mysqli_connect("localhost","root","","dawei"); 
                             mysqli_query($dbc,"SET NAMES UTF8");
                             $query = "SELECT ABOUT FROM dishes WHERE ID=2";
                             $result = mysqli_query($dbc,$query); 
                             while($row = mysqli_fetch_array($result)){ echo $row['ABOUT']; }
                         ?>
-                        </p><br>
+                        </p>
+                        <p class="w3-text-grey">! GLUTEN !</p>
+                        <br>
 
+                        
+                        
                         <h5>
-                        <?php 
+                            <?php 
                             $dbc = mysqli_connect("localhost","root","","dawei"); 
                             mysqli_query($dbc,"SET NAMES UTF8");
                             $query = "SELECT NAME FROM dishes WHERE ID=3";
@@ -165,56 +195,323 @@
                             while($row = mysqli_fetch_array($result)){ echo $row['NAME']; }
                         ?>
                         </h5>
+                        <div class="menu-images">
+                            <img src="../images/ChickenMasala.png" width="200px" />
+                        </div>
+                        <div>
+                            <p class="menu-prices">
+                            <?php 
+                                $dbc = mysqli_connect("localhost","root","","dawei"); 
+                                mysqli_query($dbc,"SET NAMES UTF8");
+                                $query = "SELECT PRICE FROM dishes WHERE ID=3";
+                                $result = mysqli_query($dbc,$query); 
+                                while($row = mysqli_fetch_array($result)){ echo $row['PRICE']; }
+                            ?> KR
+                            </p>
+                        </div>
+                        <img src="../images/scoville1.png" width="200px" class="menu-scoville">
                         <p class="w3-text-grey">
-                        <?php 
+                            <?php 
                             $dbc = mysqli_connect("localhost","root","","dawei"); 
                             mysqli_query($dbc,"SET NAMES UTF8");
                             $query = "SELECT ABOUT FROM dishes WHERE ID=3";
                             $result = mysqli_query($dbc,$query); 
                             while($row = mysqli_fetch_array($result)){ echo $row['ABOUT']; }
                         ?>
+                        </p>
+                        <p class="w3-text-grey">! NÖTTER !</p>
+                        <br>
+
+                        
+                        
+                        <h5>
+                            <?php 
+                            $dbc = mysqli_connect("localhost","root","","dawei"); 
+                            mysqli_query($dbc,"SET NAMES UTF8");
+                            $query = "SELECT NAME FROM dishes WHERE ID=4";
+                            $result = mysqli_query($dbc,$query); 
+                            while($row = mysqli_fetch_array($result)){ echo $row['NAME']; }
+                        ?>
+                        </h5>
+                        <div class="menu-images">
+                            <img src="../images/fl%C3%A4skfile.png" width="200px" />
+                        </div>
+                        <div>
+                            <p class="menu-prices">
+                            <?php 
+                                $dbc = mysqli_connect("localhost","root","","dawei"); 
+                                mysqli_query($dbc,"SET NAMES UTF8");
+                                $query = "SELECT PRICE FROM dishes WHERE ID=4";
+                                $result = mysqli_query($dbc,$query); 
+                                while($row = mysqli_fetch_array($result)){ echo $row['PRICE']; }
+                            ?> KR
+                            </p>
+                        </div>
+                        <img src="../images/scoville2.png" width="200px" class="menu-scoville">
+                        <p class="w3-text-grey">
+                            <?php 
+                            $dbc = mysqli_connect("localhost","root","","dawei"); 
+                            mysqli_query($dbc,"SET NAMES UTF8");
+                            $query = "SELECT ABOUT FROM dishes WHERE ID=4";
+                            $result = mysqli_query($dbc,$query); 
+                            while($row = mysqli_fetch_array($result)){ echo $row['ABOUT']; }
+                        ?>
                         </p><br>
 
-                        <h5>Scrambled eggs</h5>
-                        <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
+                        
+                        
+                        <h5>
+                            <?php 
+                            $dbc = mysqli_connect("localhost","root","","dawei"); 
+                            mysqli_query($dbc,"SET NAMES UTF8");
+                            $query = "SELECT NAME FROM dishes WHERE ID=5";
+                            $result = mysqli_query($dbc,$query); 
+                            while($row = mysqli_fetch_array($result)){ echo $row['NAME']; }
+                        ?>
+                        </h5>
+                        <div class="menu-images">
+                            <img src="../images/nudelwok.png" width="200px" />
+                        </div>
+                        <div>
+                            <p class="menu-prices">
+                            <?php 
+                                $dbc = mysqli_connect("localhost","root","","dawei"); 
+                                mysqli_query($dbc,"SET NAMES UTF8");
+                                $query = "SELECT PRICE FROM dishes WHERE ID=5";
+                                $result = mysqli_query($dbc,$query); 
+                                while($row = mysqli_fetch_array($result)){ echo $row['PRICE']; }
+                            ?> KR
+                            </p>
+                        </div>
+                        <img src="../images/scoville3.png" width="200px" class="menu-scoville">
+                        <p class="w3-text-grey">
+                            <?php 
+                            $dbc = mysqli_connect("localhost","root","","dawei"); 
+                            mysqli_query($dbc,"SET NAMES UTF8");
+                            $query = "SELECT ABOUT FROM dishes WHERE ID=5";
+                            $result = mysqli_query($dbc,$query); 
+                            while($row = mysqli_fetch_array($result)){ echo $row['ABOUT']; }
+                        ?>
+                        </p><br>
 
-                        <h5>Blueberry Pancakes</h5>
-                        <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>
+                        
+                        
+                        <h5>
+                            <?php 
+                            $dbc = mysqli_connect("localhost","root","","dawei"); 
+                            mysqli_query($dbc,"SET NAMES UTF8");
+                            $query = "SELECT NAME FROM dishes WHERE ID=6";
+                            $result = mysqli_query($dbc,$query); 
+                            while($row = mysqli_fetch_array($result)){ echo $row['NAME']; }
+                        ?>
+                        </h5>
+                        <div class="menu-images">
+                            <img src="../images/biff.png" width="200px" />
+                        </div>
+                        <div>
+                            <p class="menu-prices">
+                            <?php 
+                                $dbc = mysqli_connect("localhost","root","","dawei"); 
+                                mysqli_query($dbc,"SET NAMES UTF8");
+                                $query = "SELECT PRICE FROM dishes WHERE ID=6";
+                                $result = mysqli_query($dbc,$query); 
+                                while($row = mysqli_fetch_array($result)){ echo $row['PRICE']; }
+                            ?> KR
+                            </p>
+                        </div>
+                        <img src="../images/scoville3.png" width="200px" class="menu-scoville">
+                        <p class="w3-text-grey">
+                            <?php 
+                            $dbc = mysqli_connect("localhost","root","","dawei"); 
+                            mysqli_query($dbc,"SET NAMES UTF8");
+                            $query = "SELECT ABOUT FROM dishes WHERE ID=6";
+                            $result = mysqli_query($dbc,$query); 
+                            while($row = mysqli_fetch_array($result)){ echo $row['ABOUT']; }
+                        ?>
+                        </p><br>
+
+                        
+                        
+                        <h5>
+                            <?php 
+                            $dbc = mysqli_connect("localhost","root","","dawei"); 
+                            mysqli_query($dbc,"SET NAMES UTF8");
+                            $query = "SELECT NAME FROM dishes WHERE ID=7";
+                            $result = mysqli_query($dbc,$query); 
+                            while($row = mysqli_fetch_array($result)){ echo $row['NAME']; }
+                        ?>
+                        </h5>
+                        <div class="menu-images">
+                            <img src="../images/klubbor.png" width="200px" />
+                        </div>
+                        <div>
+                            <p class="menu-prices">
+                            <?php 
+                                $dbc = mysqli_connect("localhost","root","","dawei"); 
+                                mysqli_query($dbc,"SET NAMES UTF8");
+                                $query = "SELECT PRICE FROM dishes WHERE ID=7";
+                                $result = mysqli_query($dbc,$query); 
+                                while($row = mysqli_fetch_array($result)){ echo $row['PRICE']; }
+                            ?> KR
+                            </p>
+                        </div>
+                        <img src="../images/scoville1.png" width="200px" class="menu-scoville">
+                        <p class="w3-text-grey">
+                            <?php 
+                            $dbc = mysqli_connect("localhost","root","","dawei"); 
+                            mysqli_query($dbc,"SET NAMES UTF8");
+                            $query = "SELECT ABOUT FROM dishes WHERE ID=7";
+                            $result = mysqli_query($dbc,$query); 
+                            while($row = mysqli_fetch_array($result)){ echo $row['ABOUT']; }
+                        ?>
+                        </p><br>
+
+                        
+                        
+                        <h5>
+                            <?php 
+                            $dbc = mysqli_connect("localhost","root","","dawei"); 
+                            mysqli_query($dbc,"SET NAMES UTF8");
+                            $query = "SELECT NAME FROM dishes WHERE ID=8";
+                            $result = mysqli_query($dbc,$query); 
+                            while($row = mysqli_fetch_array($result)){ echo $row['NAME']; }
+                        ?>er
+                        </h5>
+                        <div class="menu-images">
+                            <img src="../images/n%C3%B6tter.png" width="200px" />
+                        </div>
+                        <div>
+                            <p class="menu-prices">
+                            <?php 
+                                $dbc = mysqli_connect("localhost","root","","dawei"); 
+                                mysqli_query($dbc,"SET NAMES UTF8");
+                                $query = "SELECT PRICE FROM dishes WHERE ID=8";
+                                $result = mysqli_query($dbc,$query); 
+                                while($row = mysqli_fetch_array($result)){ echo $row['PRICE']; }
+                            ?> KR
+                            </p>
+                        </div>
+                        <img src="../images/scoville2.png" width="200px" class="menu-scoville">
+                        <p class="w3-text-grey">
+                            <?php 
+                            $dbc = mysqli_connect("localhost","root","","dawei"); 
+                            mysqli_query($dbc,"SET NAMES UTF8");
+                            $query = "SELECT ABOUT FROM dishes WHERE ID=8";
+                            $result = mysqli_query($dbc,$query); 
+                            while($row = mysqli_fetch_array($result)){ echo $row['ABOUT']; }
+                        ?>
+                        </p>
+                        <p class="w3-text-grey">! NÖTTER !</p>
+                        <br>
+
+                        
+                        
+                        <h5>
+                            <?php 
+                            $dbc = mysqli_connect("localhost","root","","dawei"); 
+                            mysqli_query($dbc,"SET NAMES UTF8");
+                            $query = "SELECT NAME FROM dishes WHERE ID=9";
+                            $result = mysqli_query($dbc,$query); 
+                            while($row = mysqli_fetch_array($result)){ echo $row['NAME']; }
+                        ?>
+                        </h5>
+                        <div class="menu-images">
+                            <img src="../images/thaikyckling.png" width="200px" />
+                        </div>
+                        <div>
+                            <p class="menu-prices">
+                            <?php 
+                                $dbc = mysqli_connect("localhost","root","","dawei"); 
+                                mysqli_query($dbc,"SET NAMES UTF8");
+                                $query = "SELECT PRICE FROM dishes WHERE ID=9";
+                                $result = mysqli_query($dbc,$query); 
+                                while($row = mysqli_fetch_array($result)){ echo $row['PRICE']; }
+                            ?> KR
+                            </p>
+                        </div>
+                        <img src="../images/scoville2.png" width="200px" class="menu-scoville">
+                        <p class="w3-text-grey">
+                            <?php 
+                            $dbc = mysqli_connect("localhost","root","","dawei"); 
+                            mysqli_query($dbc,"SET NAMES UTF8");
+                            $query = "SELECT ABOUT FROM dishes WHERE ID=9";
+                            $result = mysqli_query($dbc,$query); 
+                            while($row = mysqli_fetch_array($result)){ echo $row['ABOUT']; }
+                        ?>
+                        </p><br>
+
+                        
+                        
+                        <h5>
+                            <?php 
+                            $dbc = mysqli_connect("localhost","root","","dawei"); 
+                            mysqli_query($dbc,"SET NAMES UTF8");
+                            $query = "SELECT NAME FROM dishes WHERE ID=10";
+                            $result = mysqli_query($dbc,$query); 
+                            while($row = mysqli_fetch_array($result)){ echo $row['NAME']; }
+                        ?>
+                        </h5>
+                        <div class="menu-images">
+                            <img src="../images/soppa.png" width="200px" />
+                        </div>
+                        <div>
+                            <p class="menu-prices">
+                            <?php 
+                                $dbc = mysqli_connect("localhost","root","","dawei"); 
+                                mysqli_query($dbc,"SET NAMES UTF8");
+                                $query = "SELECT PRICE FROM dishes WHERE ID=10";
+                                $result = mysqli_query($dbc,$query); 
+                                while($row = mysqli_fetch_array($result)){ echo $row['PRICE']; }
+                            ?> KR
+                            </p>
+                        </div>
+                        <img src="../images/scoville1.png" width="200px" class="menu-scoville">
+                        <p class="w3-text-grey">
+                            <?php 
+                            $dbc = mysqli_connect("localhost","root","","dawei"); 
+                            mysqli_query($dbc,"SET NAMES UTF8");
+                            $query = "SELECT ABOUT FROM dishes WHERE ID=10";
+                            $result = mysqli_query($dbc,$query); 
+                            while($row = mysqli_fetch_array($result)){ echo $row['ABOUT']; }
+                        ?>
+                        </p>
+
+                        
+                        
                     </div>
 
                     <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
-                        <h5>Coffee</h5>
-                        <p class="w3-text-grey">Regular coffee 2.50</p><br>
-
-                        <h5>Chocolato</h5>
-                        <p class="w3-text-grey">Chocolate espresso with milk 4.50</p><br>
+                        <h5>Alcohol</h5>
+                        <p class="w3-text-grey">Öl, Vodka, Vin. 45 Kr</p><br>
 
                         <h5>Corretto</h5>
-                        <p class="w3-text-grey">Whiskey and coffee 5.00</p><br>
+                        <p class="w3-text-grey">Whiskey och caffe. 35 Kr</p><br>
 
                         <h5>Iced tea</h5>
-                        <p class="w3-text-grey">Hot tea, except not hot 3.00</p><br>
+                        <p class="w3-text-grey">Kall te. 15 Kr</p><br>
 
                         <h5>Soda</h5>
-                        <p class="w3-text-grey">Coke, Sprite, Fanta, etc. 2.50</p>
+                        <p class="w3-text-grey">Cola, Sprite, Fanta, osv. 15 Kr</p>
+
+                        <h5>Water</h5>
+                        <p class="w3-text-grey">Gratis</p>
+
                     </div>
-                    <img src="/w3images/coffeehouse2.jpg" style="width:100%;max-width:1000px;margin-top:32px;">
                 </div>
             </div>
 
             <!-- Contact/Area Container -->
             <div class="w3-container" id="where" style="padding-bottom:32px;">
                 <div class="w3-content" style="max-width:700px">
-                    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">WHERE TO FIND US</span></h5>
-                    <p>Find us at some address at some place.</p>
+                    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">HITTA OSS</span></h5>
                     <div id="googleMap" class="w3-sepia" style="width:100%;height:400px;"></div>
-                    <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
-                    <p><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p>
+                    <p><span class="w3-tag">FYI!</span> Vi erbjuder bästa service för alla evenemang, stora eller små. Vi förstår dina behov och vi kommer att tillaga maten för att behålla de största kriterierna för dem alla, både utseende och smak.</p>
+                    <p><strong>Boka</strong> ett bord och lämna gärna ett meddelande om det behövs speciala kost:</p>
                     <form action="/action_page.php" target="_blank">
-                        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-                        <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="How many people" required name="People"></p>
-                        <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="2017-11-16T20:00"></p>
-                        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
+                        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Namn" required name="Name"></p>
+                        <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="Antal personer" required name="People"></p>
+                        <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="2018-03-01T13:00"></p>
+                        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Meddelande / Speciala krav" required name="Message"></p>
                         <p><button class="w3-button w3-black" type="submit">SEND MESSAGE</button></p>
                     </form>
                 </div>
@@ -225,12 +522,12 @@
 
         <!-- Footer -->
         <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
-            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+            <p>© 2018 BaBa BaoB.</p>
         </footer>
         <!-- Add Google Maps -->
         <script>
             function myMap() {
-                myCenter = new google.maps.LatLng(41.878114, -87.629798);
+                myCenter = new google.maps.LatLng(55.5587605, 12.9786832);
                 var mapOptions = {
                     center: myCenter,
                     zoom: 12,
@@ -263,4 +560,4 @@
             document.getElementById("myLink").click();
 
         </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8MPZU6GFkKYCARufg1lM-nf0CKhYteH0&callback=myMap"></script>
