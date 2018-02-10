@@ -10,4 +10,4 @@ CREATE TABLE dishes(ID int(8) PRIMARY_KEY AUTOINCREMENT, NAME varchar(32), ABOUT
 
 INSERT INTO dishes (NAME, ABOUT, SCOVILLE, RATING, PRICE, ALLERGY) VALUES ('', '', '', '', '', '');
 
-INSERT INTO dishes (NAME, ABOUT, SCOVILLE, RATING, PRICE, ALLERGY) VALUES ('Thailändsk Fläskfile', 'Kokos, ingefära och chili ger sting i denna exotiska gryta.', '8', '3', '59', 'INGET');
+INSERT INTO dishes (NAME, ABOUT, SCOVILLE, RATING, PRICE, ALLERGY) VALUES ('Thaigryta med fisk och räkor', 'Kelda soppa är också en bra grytbas. Du tar bara lite mindre soppa och lite mer ingredienser.', '1', '2', '39', 'INGET');
